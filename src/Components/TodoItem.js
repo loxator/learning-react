@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './TodoItem.css'
 
 
 class TodoItem extends Component {
@@ -11,8 +11,8 @@ class TodoItem extends Component {
 
 
         return (
-            <li className="Projects">
-                {this.props.todos.id} - {this.props.todos.title}
+            <li className="TodoItem">
+                {this.props.todos.categories.id} - {this.props.todos.categories.name}
             </li>
         );
     }
