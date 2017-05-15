@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Projects from './Components/Projects';
 import Todo from './Components/Todo';
+import Restaurants from './Components/Restaurants';
 import uuid from 'uuid';
 import $ from 'jquery';
 import AddProject from './Components/AddProject';
@@ -12,13 +13,16 @@ constructor(){
     super();
     this.state = {
         projects:[],
-        todos:[]
+        todos:[],
+        restaurants:{}
     }
+
 }
 
 componentWillMount(){
-   this.getProjects();
-   this.getToDos();
+  /* this.getProjects();
+   //this.getToDos();*/
+   this.getRestaurants('16774318');
 }
 
     getToDos(){
@@ -36,6 +40,28 @@ componentWillMount(){
             }
         })
     }
+
+    getRestaurants(restID){
+        $.ajax({
+            url:"https://developers.zomato.com/api/v2.1/restaurant?res_id="+restID,
+            dataType:'json',
+            headers: {
+                'user-key': '511760f1a33f8de086fc291006aa12f9'
+            },
+            cache:false,
+            success:function (data) {
+                this.setState({
+                    restaurants:data
+                },function(){
+                    console.log(this.state);
+                })
+            }.bind(this),
+            error:function (xhr,status,err) {
+                console.log(err);
+            }
+        })
+    }
+
 
     getProjects(){
         this.setState({projects:[
@@ -85,10 +111,11 @@ render() {
     return (
       <div className="App">
 
-        <AddProject addProject={this.handleAddProject.bind(this)}/>
-          <Projects onDelete={this.handleDeleteProject.bind(this)}projects={this.state.projects}/>
+
+
           <hr/>
-          <Todo todos={this.state.todos}/>
+          <Restaurants restaurants={this.state.restaurants}/>
+
       </div>
     );
   }
