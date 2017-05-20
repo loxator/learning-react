@@ -7,26 +7,22 @@ class Restaurants extends Component {
 
     render() {
 
-        let restaurant = this.props.restaurants;
-        if(restaurant){
+        let restaurantItems
+        if(this.props.restaurants){
 
-            console.log(restaurant);
-            <RestaurantItems  restaurant={restaurant}/>
+                restaurantItems = this.props.restaurants.map(restaurant => {
+               console.log(restaurant);
+               return(
+                   <RestaurantItems  key={restaurant.R.res_id} restaurants={restaurant}/>
+               )
+           })
 
         }
 
         return (
-            <div  className="Projects">
-          <li>
-              {restaurant.name}
-          </li>
-                <li><img src = {restaurant.featured_image}/>  </li>
-                <li>   {restaurant.cuisines} </li>
+            <div  className="Restaurants">
 
-                <li>{restaurant.menu_url}   </li>
-
-
-
+                {restaurantItems}
 
             </div>
         );
