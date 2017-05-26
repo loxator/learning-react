@@ -118,7 +118,6 @@ render() {
       <div className="App">
           <hr/>
           <Restaurants restaurants={this.state.restaurants}/>
-
       </div>
     );
   }
