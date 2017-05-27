@@ -13,8 +13,8 @@ class Restaurants extends Component {
 
 
 
-    updateSearch(e){
-        this.setState({searchString:e.target.value});
+    updateSearch(event){
+        this.setState({searchString:event.target.value.substring(0,20)});
     }
 
     render() {
@@ -22,7 +22,7 @@ class Restaurants extends Component {
         let restaurantItems;
         let searchRestaurants = this.props.restaurants.filter(
             (restaurant) => {
-                return restaurant.name.indexOf(this.state.searchString) !== -1;
+                return restaurant.name.toLowerCase().indexOf(this.state.searchString.toLowerCase()) !== -1;
             }
         );
 
