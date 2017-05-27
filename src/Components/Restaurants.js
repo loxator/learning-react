@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
 import RestaurantItems from './RestaurantItems';
-import './Restaurants.css'
+import './Restaurants.css';
+import {Navbar, NavItem} from 'react-materialize';
 
 
 class Restaurants extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {searchString:''}
+    }
+
+
+
+    updateSearch(e){
+        this.setState({searchString:e.target.value});
+    }
 
     render() {
 
-        let restaurantItems
-        if(this.props.restaurants){
+        let restaurantItems;
+        let searchRestaurants = this.props.restaurants.filter(
+            (restaurant) => {
+                return restaurant.name.indexOf(this.state.searchString) !== -1;
+            }
+        );
 
-                restaurantItems = this.props.restaurants.map(restaurant => {
-               console.log(restaurant);
+        if(searchRestaurants){
+
+                restaurantItems = searchRestaurants.map(restaurant => {
                return(
 
                    <RestaurantItems  key={restaurant.R.res_id} restaurants={restaurant}/>
@@ -23,16 +39,32 @@ class Restaurants extends Component {
 
         return (
 
-            <div  className="Restaurants">
-                <ul className="NavigationBar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="default.asp">Restaurants</a></li>
-                    <li><a href="default.asp">Electronics</a></li>
-                    <li><a href="default.asp">Hotels</a></li>
-                </ul>
+            <div >
+                <Navbar  className='light-blue lighten-2'  brand='Review ME' right>
+                    <NavItem href='get-started.html'>Home</NavItem>
+                    <NavItem href='components.html'>Restaurants</NavItem>
+                    <NavItem href='components.html'>Hotels</NavItem>
+                    <NavItem href='components.html'>Electronics</NavItem>
+                </Navbar>
+
                 <br/>
 
-                {restaurantItems}
+                <nav>
+                    <div className="nav-wrapper light-blue lighten-2">
+                        <form>
+                            <div className="input-field">
+                                <input id="search" type="search" required value={this.state.searchString} onChange={this.updateSearch.bind(this)}
+                                        placeholder = "Search"/>
+                                    <label className="label-icon" for="search"><i className="material-icons">search</i></label>
+                                    <i className="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+
+                <div className="row">
+                    {restaurantItems}
+                </div>
 
             </div>
         );
