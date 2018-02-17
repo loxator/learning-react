@@ -58,7 +58,7 @@ class NearbyRestaurants extends Component {
             success: function (data) {
 
                 this.setState({nearbyRestaurantArray: data.nearby_restaurants}, function () {
-                    console.log(this.state);
+                   // console.log(this.state);
 
                 })
             }.bind(this),

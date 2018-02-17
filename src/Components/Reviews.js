@@ -24,7 +24,7 @@ class Reviews extends Component {
             success: function (data) {
 
                 this.setState({reviews: this.state.reviews.concat(data.user_reviews)}, function () {
-                    console.log(this.state);
+                   // console.log(this.state);
 
                 })
             }.bind(this),

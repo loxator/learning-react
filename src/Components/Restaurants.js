@@ -40,7 +40,7 @@ class Restaurants extends Component {
         return (
 
             <div >
-                <Navbar  className='light-blue lighten-2'  brand='Review ME' right>
+                <Navbar  className='light-blue lighten-2 center'  brand='Review ME' >
                     <NavItem href='get-started.html'>Home</NavItem>
                     <NavItem href='components.html'>Restaurants</NavItem>
                     <NavItem href='components.html'>Hotels</NavItem>
@@ -48,7 +48,8 @@ class Restaurants extends Component {
                 </Navbar>
 
                 <br/>
-
+                <h2>Restaurants</h2>
+{/*
                 <nav>
                     <div className="nav-wrapper light-blue lighten-2">
                         <form>
@@ -60,7 +61,7 @@ class Restaurants extends Component {
                             </div>
                         </form>
                     </div>
-                </nav>
+                </nav>*/}
 
                 <div className="row">
                     {restaurantItems}

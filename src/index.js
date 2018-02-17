@@ -5,7 +5,7 @@ import App from './App';
 
 ReactDOM.render(
   <div>
-      <App randomShitAgain="Ibrahim" randomShit="Wut!!?"/>
+      <App />
 
       </div>,
   document.getElementById('root')
