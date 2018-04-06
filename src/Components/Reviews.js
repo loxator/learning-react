@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReviewItem from './ReviewItem';
 import $ from 'jquery';
+import config from '../config'
 
 
 class Reviews extends Component {
@@ -18,7 +19,7 @@ class Reviews extends Component {
             url: "https://developers.zomato.com/api/v2.1/reviews?res_id=" + restID,
             dataType: 'json',
             headers: {
-                'user-key': '511760f1a33f8de086fc291006aa12f9',
+                'user-key': config.userKey,
 
             },
             success: function (data) {

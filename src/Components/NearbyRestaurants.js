@@ -3,6 +3,7 @@ import NearbyRestaurantItems from './NearbyRestaurantItems';
 import './Restaurants.css';
 import {Navbar, NavItem} from 'react-materialize';
 import $ from 'jquery';
+import config from '../config';
 
 
 class NearbyRestaurants extends Component {
@@ -53,7 +54,7 @@ class NearbyRestaurants extends Component {
             url: "https://developers.zomato.com/api/v2.1/geocode?lat=" + lat + "&lon=" + longi,
             dataType: 'json',
             headers: {
-                'user-key': '511760f1a33f8de086fc291006aa12f9'
+                'user-key': config.userKey
             },
             success: function (data) {
 

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 import Restaurants from './Components/Restaurants';
-import NearbyRestaurants from './Components/NearbyRestaurants';
 import $ from 'jquery';
 import './App.css';
+import config from './config'
 
 class App extends Component {
 
@@ -38,7 +38,7 @@ componentDidMount(){
                 url: "https://developers.zomato.com/api/v2.1/restaurant?res_id=" + ID,
                 dataType: 'json',
                 headers: {
-                    'user-key': '511760f1a33f8de086fc291006aa12f9'
+                    'user-key': config.userKey
                 },
                 cache: false,
                 success: function (data) {
@@ -72,8 +72,8 @@ componentDidMount(){
                     <Restaurants restaurants={this.state.restaurants}/>
                     <hr/>
 
-                    <h2>Restaurants Near you</h2>
-                    <NearbyRestaurants />
+                    {/*<h2>Restaurants Near you</h2>
+                    <NearbyRestaurants />*/}
 
 
                 </div>
