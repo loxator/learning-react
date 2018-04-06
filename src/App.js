@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import Restaurants from './Components/Restaurants';
+import NearbyRestaurants from './Components/NearbyRestaurants';
 import $ from 'jquery';
 import './App.css';
 import config from './config'
@@ -69,11 +70,11 @@ componentDidMount(){
 
                 <div>
 
-                    <Restaurants restaurants={this.state.restaurants}/>
-                    <hr/>
+                 <Restaurants restaurants={this.state.restaurants}/>
+                 <hr/>
 
-                    {/*<h2>Restaurants Near you</h2>
-                    <NearbyRestaurants />*/}
+                    <h2>Restaurants Near you</h2>
+                    <NearbyRestaurants />
 
 
                 </div>

@@ -43,25 +43,11 @@ class Restaurants extends Component {
                 <Navbar  className='light-blue lighten-2 center'  brand='Review ME' >
                     <NavItem href='get-started.html'>Home</NavItem>
                     <NavItem href='components.html'>Restaurants</NavItem>
-                    <NavItem href='components.html'>Hotels</NavItem>
-                    <NavItem href='components.html'>Electronics</NavItem>
                 </Navbar>
 
                 <br/>
                 <h2>Restaurants</h2>
-{/*
-                <nav>
-                    <div className="nav-wrapper light-blue lighten-2">
-                        <form>
-                            <div className="input-field">
-                                <input id="search" type="search" required value={this.state.searchString} onChange={this.updateSearch.bind(this)}
-                                        placeholder = "Search"/>
-                                    <label className="label-icon" for="search"><i className="material-icons">search</i></label>
-                                    <i className="material-icons">close</i>
-                            </div>
-                        </form>
-                    </div>
-                </nav>*/}
+
 
                 <div className="row">
                     {restaurantItems}

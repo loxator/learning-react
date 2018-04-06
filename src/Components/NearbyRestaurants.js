@@ -31,7 +31,7 @@ class NearbyRestaurants extends Component {
 
     getLocation() {
         $.ajax({
-            url: "//freegeoip.net/json/?callback=?",
+            url: "http://api.ipstack.com/check?access_key="+config.accessKey,
             dataType: 'json',
             cache: false,
             success: function (data) {
