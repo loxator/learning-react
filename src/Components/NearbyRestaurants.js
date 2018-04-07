@@ -31,10 +31,11 @@ class NearbyRestaurants extends Component {
 
     getLocation() {
         $.ajax({
-            url: "http://api.ipstack.com/check?access_key="+config.accessKey,
+            url: "https://api.ipdata.co",
             dataType: 'json',
             cache: false,
             success: function (data) {
+                console.log(data),
                 this.setState({
                     coordinates: data,
                     loading:false
@@ -44,8 +45,6 @@ class NearbyRestaurants extends Component {
                 })
             }.bind(this),
             error: function (xhr, status, err) {
-                console.log("xhr = " + xhr);
-                console.log("status = " + status);
                 console.log(err);
             },
 
