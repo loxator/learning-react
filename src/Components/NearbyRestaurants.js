@@ -44,6 +44,8 @@ class NearbyRestaurants extends Component {
                 })
             }.bind(this),
             error: function (xhr, status, err) {
+                console.log("xhr = " + xhr);
+                console.log("status = " + status);
                 console.log(err);
             },
 
