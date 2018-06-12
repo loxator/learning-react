@@ -1,3 +1,49 @@
 Navbar{
     color : black;
 }
+
+@font-face {
+    font-family: pacificAgain;
+    src: url(../../public/Pacific_Again.ttf);
+}
+
+h2 {
+    font-family: pacificAgain;
+    font-size: 6vw;
+    text-align: center;
+}
+
+nav .brand-logo {
+    font-size: 2vw;
+    font-family: pacificAgain;
+}
+
+nav ul a {
+    font-size: 2vw;
+    font-family: pacificAgain;
+}
+
+@media only screen and (max-width: 768px) {
+
+    nav .brand-logo {
+        font-size: 2vw;
+        font-family: pacificAgain;
+    }
+
+    nav ul a {
+        font-size: 2vw;
+        font-family: pacificAgain;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    nav .brand-logo {
+        font-size: 5vw;
+        font-family: pacificAgain;
+    }
+
+    nav ul a {
+        font-size: 5vw;
+        font-family: pacificAgain;
+    }
+}

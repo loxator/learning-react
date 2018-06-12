@@ -11,12 +11,6 @@ class Restaurants extends Component {
         this.state = {searchString:''}
     }
 
-
-
-    updateSearch(event){
-        this.setState({searchString:event.target.value.substring(0,20)});
-    }
-
     render() {
 
         let restaurantItems;

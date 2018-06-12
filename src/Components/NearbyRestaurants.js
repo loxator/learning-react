@@ -4,55 +4,37 @@ import './Restaurants.css';
 import {Navbar, NavItem} from 'react-materialize';
 import $ from 'jquery';
 import config from '../config';
+import axios from 'axios'
 
 
 class NearbyRestaurants extends Component {
 
     constructor(props){
         super(props);
-        this.state = {searchString:'',
-                      coordinates : {},
+        this.state = {
             nearbyRestaurantArray:[]
-        }
+        };
 
-
+        this.getRestaurantsByLocation = this.getRestaurantsByLocation.bind(this)
     }
-
 
     componentDidMount() {
-        this.getLocation();
+       navigator.geolocation.getCurrentPosition(this.getRestaurantsByLocation)
     }
 
 
-    updateSearch(event){
-        this.setState({searchString:event.target.value.substring(0,20)});
-    }
 
 
-    getLocation() {
+
+    getRestaurantsByLocation(position) {
+
+
+        let lat = position.coords.latitude;
+        let longi = position.coords.longitude;
+        let url = "https://developers.zomato.com/api/v2.1/geocode?lat=" +lat + "&lon=" + longi
+
         $.ajax({
-            url: "https://api.ipdata.co",
-            dataType: 'json',
-            cache: false,
-            success: function (data) {
-                console.log(data),
-                this.setState({
-                    coordinates: data,
-                    loading:false
-                }, function () {
-
-                    this.getRestaurantsByLocation(data.latitude,data.longitude)
-                })
-            }.bind(this),
-            error: function (xhr, status, err) {
-                console.log(err);
-            },
-
-        })
-    }
-    getRestaurantsByLocation(lat, longi) {
-        $.ajax({
-            url: "https://developers.zomato.com/api/v2.1/geocode?lat=" + lat + "&lon=" + longi,
+            url: url,
             dataType: 'json',
             headers: {
                 'user-key': config.userKey
@@ -60,15 +42,15 @@ class NearbyRestaurants extends Component {
             success: function (data) {
 
                 this.setState({nearbyRestaurantArray: data.nearby_restaurants}, function () {
-                   // console.log(this.state);
-
+                     console.log(this.state);
                 })
             }.bind(this),
             error: function (xhr, status, err) {
                 console.log(err);
             },
-            async: false
+
         })
+
     }
 
     render() {

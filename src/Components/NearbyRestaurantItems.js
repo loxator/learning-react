@@ -19,10 +19,7 @@ class NearbyRestaurantItems extends Component {
             return "http://www.freefoodphotos.com/imagelibrary/bread/slides/bread_roll.jpg"
 
         }
-        else {
-            return image
-
-        }
+        return image
     }
 
     render() {

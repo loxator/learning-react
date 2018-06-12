@@ -11,10 +11,8 @@ class RestaurantItems extends Component {
             return "http://www.freefoodphotos.com/imagelibrary/bread/slides/bread_roll.jpg"
 
         }
-        else {
-            return image
+        return image
 
-        }
     }
 
     render() {
@@ -22,7 +20,7 @@ class RestaurantItems extends Component {
 
         return (
 
-             <div className="col m3">
+             <div className="col m4">
                 <div className="card">
                     <div className="card-image">
                         <img className="activator" src={this.imageExists(this.props)}/>
