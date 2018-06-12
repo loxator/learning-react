@@ -4,7 +4,6 @@ import './Restaurants.css';
 import {Navbar, NavItem} from 'react-materialize';
 import $ from 'jquery';
 import config from '../config';
-import axios from 'axios'
 
 
 class NearbyRestaurants extends Component {

@@ -8,7 +8,7 @@ class ReviewItem extends Component {
 
 
     render() {
-console.log(this.props.reviews.review)
+
 
         return (
 
